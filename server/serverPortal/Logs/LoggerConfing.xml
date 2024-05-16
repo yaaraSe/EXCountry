@@ -1,0 +1,41 @@
+﻿<log4net>
+	<appender name="CountryFileAppender" type="log4net.Appender.RollingFileAppender">
+		<file value="CountryFileAppender-file.txt" />
+		<appendToFile value="true" />
+		<rollingStyle value="Size" />
+		<maxSizeRollBackups value="2" />
+		<maximumFileSize value="100KB" />
+		<layout type="log4net.Layout.PatternLayout">
+			<conversionPattern value="%date %level %message%newline" />
+		</layout>
+
+	</appender>
+
+
+	<appender name="colors" type="log4net.Appender.ManagedColoredConsoleAppender">
+		<mapping>
+			<level value="INFO" />
+			<forecolor value="Green" />
+		</mapping>
+		<mapping>
+			<level value="WARN" />
+			<forecolor value="Yellow" />
+		</mapping>
+		<mapping>
+			<level value="ERROR" />
+			<forecolor value="Red" />
+		</mapping>
+		<mapping>
+			<level value="DEBUG" />
+			<forecolor value="Blue" />
+		</mapping>
+		<layout type="log4net.Layout.PatternLayout">
+			<conversionPattern value="%date %level %logger.%method[%line] - %message%newline" />
+		</layout>
+	</appender>
+	<root>
+		<level value="ALL" />
+		<appender-ref ref="CountryFileAppender" />
+		<appender-ref ref="colors" />
+	</root>
+</log4net>
